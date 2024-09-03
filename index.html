@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kids Quiz Game</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="game-content">
+        <h1>General Knowledge Quiz</h1>
+
+        <div class="lifelines">
+          <button
+            class="lifeline-button"
+            id="fiftyFifty"
+            onclick="useFiftyFifty()"
+          >
+            50-50
+          </button>
+
+          <button
+            class="lifeline-button"
+            id="phoneFriend"
+            onclick="usePhoneFriend()"
+          >
+            Phone a Friend
+          </button>
+
+          <button
+            class="lifeline-button"
+            id="audiencePoll"
+            onclick="useAudiencePoll()"
+          >
+            Audience Poll
+          </button>
+        </div>
+
+        <div class="question" id="question">Question will appear here</div>
+
+        <div id="options">
+          <div class="option" onclick="checkAnswer(0)">
+            <span class="option-label">A</span> Option A
+          </div>
+
+          <div class="option" onclick="checkAnswer(1)">
+            <span class="option-label">B</span> Option B
+          </div>
+
+          <div class="option" onclick="checkAnswer(2)">
+            <span class="option-label">C</span> Option C
+          </div>
+
+          <div class="option" onclick="checkAnswer(3)">
+            <span class="option-label">D</span> Option D
+          </div>
+        </div>
+        <div class="timer" id="timer">Time Left: 30s</div>
+        <div class="points" id="pointsDisplay">Points: 0</div>
+      </div>
+      <div class="money-ladder" id="moneyLadder">
+        <ul>
+          <li>₹ 1,00,00,000</li>
+
+          <li>₹ 50,00,000</li>
+
+          <li>₹ 25,00,000</li>
+
+          <li>₹ 12,50,000</li>
+
+          <li>₹ 6,40,000</li>
+
+          <li>₹ 3,20,000</li>
+
+          <li>₹ 1,60,000</li>
+
+          <li>₹ 80,000</li>
+
+          <li>₹ 40,000</li>
+
+          <li>₹ 20,000</li>
+
+          <li>₹ 10,000</li>
+
+          <li>₹ 5,000</li>
+
+          <li>₹ 3,000</li>
+
+          <li>₹ 2,000</li>
+
+          <li class="current">₹ 1,000</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <audio id="correctSound" src="correct.mp3" preload="auto"></audio>
+
+    <audio id="incorrectSound" src="incorrect.mp3" preload="auto"></audio>
+
+    <audio
+      id="backgroundMusic"
+      src="background.mp3"
+      preload="auto"
+      loop
+    ></audio> -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

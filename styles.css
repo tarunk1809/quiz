@@ -1,0 +1,419 @@
+body { 
+
+  font-family: Arial, sans-serif; 
+
+  text-align: center; 
+
+  background-color: #f8f9fa; 
+
+  margin: 0; 
+
+  padding: 0; 
+
+  display: flex; 
+
+  justify-content: center; 
+
+  align-items: center; 
+
+  height: 100vh; 
+
+} 
+
+ 
+
+.container { 
+
+  display: flex; 
+
+  justify-content: space-between; 
+
+  align-items: flex-start; 
+
+  width: 100%; 
+
+  max-width: 1200px; 
+
+  padding: 20px; 
+
+  box-sizing: border-box; 
+
+} 
+
+ 
+
+.game-content { 
+
+  flex: 1; 
+
+  margin-right: 20px; /* Space between game content and money ladder */ 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+  align-items: center; 
+
+  background-color: #ffffff; 
+
+  padding: 20px; 
+
+  border-radius: 8px; 
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+} 
+
+ 
+
+.money-ladder { 
+
+  width: 200px; 
+
+  position: sticky; /* Makes it stick to the viewport */ 
+
+  top: 20px; /* Space from the top of the viewport */ 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+  align-items: flex-start; 
+
+  text-align: left; 
+
+} 
+
+ 
+
+.money-ladder ul { 
+
+  list-style: none; 
+
+  padding: 0; 
+
+  margin: 0; 
+
+} 
+
+ 
+
+.money-ladder li { 
+
+  padding: 10px; 
+
+  border: 1px solid #ddd; 
+
+  margin: 5px 0; 
+
+  background-color: white; 
+
+  transition: background-color 0.3s ease; 
+
+} 
+
+ 
+
+.money-ladder li.current { 
+
+  background-color: #28a745; 
+
+  color: white; 
+
+  font-weight: bold; 
+
+} 
+
+ 
+
+.question { 
+
+  margin: 20px 0; 
+
+  font-size: 24px; 
+
+  font-weight: bold; 
+
+} 
+
+ 
+
+.option { 
+
+  margin: 10px; 
+
+  padding: 10px; 
+
+  background-color: #f0f0f0; 
+
+  cursor: pointer; 
+
+  border-radius: 5px; 
+
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+
+  display: flex; 
+
+  align-items: center; 
+
+} 
+
+ 
+
+.option:hover { 
+
+  background-color: #ddd; 
+
+  transform: scale(1.05); 
+
+} 
+
+ 
+
+.option-label { 
+
+  font-weight: bold; 
+
+  margin-right: 10px; 
+
+} 
+
+ 
+
+.lifelines { 
+
+  margin: 20px 0; 
+
+} 
+
+ 
+
+.lifeline-button { 
+
+  margin: 5px; 
+
+  padding: 10px 20px; 
+
+  background-color: #007bff; 
+
+  color: white; 
+
+  border: none; 
+
+  cursor: pointer; 
+
+  border-radius: 5px; 
+
+} 
+
+ 
+
+.lifeline-button:disabled { 
+
+  background-color: #ccc; 
+
+  cursor: not-allowed; 
+
+} 
+
+ 
+
+.timer { 
+
+  font-size: 20px; 
+
+  font-weight: bold; 
+
+  margin-top: 20px; 
+
+} 
+
+ 
+
+/* Modal styles */ 
+
+.modal { 
+
+  display: none; /* Hidden by default */ 
+
+  position: fixed; 
+
+  z-index: 1; /* Sit on top */ 
+
+  left: 0; 
+
+  top: 0; 
+
+  width: 100%; 
+
+  height: 100%; 
+
+  overflow: auto; /* Enable scroll if needed */ 
+
+  background-color: rgb(0,0,0); /* Fallback color */ 
+
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+
+} 
+
+ 
+
+.modal-content { 
+
+  background-color: #fefefe; 
+
+  margin: 15% auto; /* 15% from the top and centered */ 
+
+  padding: 20px; 
+
+  border: 1px solid #888; 
+
+  width: 80%; /* Could be more or less, depending on screen size */ 
+
+} 
+
+ 
+
+.close { 
+
+  color: #aaa; 
+
+  float: right; 
+
+  font-size: 28px; 
+
+  font-weight: bold; 
+
+} 
+
+ 
+
+.close:hover, 
+
+.close:focus { 
+
+  color: black; 
+
+  text-decoration: none; 
+
+  cursor: pointer; 
+
+} 
+
+ 
+
+.modal h2 { 
+
+  margin-top: 0; 
+
+} 
+
+ 
+
+.modal button { 
+
+  padding: 10px 20px; 
+
+  background-color: #007bff; 
+
+  color: white; 
+
+  border: none; 
+
+  cursor: pointer; 
+
+  border-radius: 5px; 
+
+} 
+
+ 
+
+.modal button:hover { 
+
+  background-color: #0056b3; 
+
+} 
+
+ 
+
+/* Wrong answers sidebar styles */ 
+
+.wrong-answers { 
+
+  width: 200px; 
+
+  position: sticky; 
+
+  top: 60px; /* Space from the top of the viewport */ 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+  align-items: flex-start; 
+
+  text-align: left; 
+
+  background-color: #ffffff; 
+
+  padding: 10px; 
+
+  border-radius: 8px; 
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+} 
+
+ 
+
+.wrong-answers h2 { 
+
+  margin-top: 0; 
+
+} 
+
+ 
+
+.wrong-answers ul { 
+
+  list-style: none; 
+
+  padding: 0; 
+
+  margin: 0; 
+
+} 
+
+ 
+
+.wrong-answers li { 
+
+  padding: 10px; 
+
+  border: 1px solid #ddd; 
+
+  margin: 5px 0; 
+
+  background-color: #f8d7da; 
+
+  color: #721c24; 
+
+  border-radius: 5px; 
+
+} 
+
+ 
+
+.points { 
+
+  font-size: 20px; 
+
+  font-weight: bold; 
+
+  margin-top: 10px; 
+
+  color: #007bff; 
+
+} 
+
+ 
